@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        .box
+        {
+            align-items: center;
+            background-color: black;
+            height: 200px;
+            width: 250px;
+        }
+        #result{
+            margin: 12px;
+            width: 208px;
+            height: 40px;
+            margin-bottom: 4px;
+            
+        }
+        #result:focus{
+            background-color: rgb(141, 152, 148);
+            
+            
+        }
+        #b{
+            margin-left: 6px;
+            width: 40px;
+            height: 40px;
+            
+            margin-right: 3px;
+            margin-top: 4px;
+            
+        }
+        #a
+        {
+            width: 40px;
+            height: 40px;
+            margin-top: 4px;
+
+        }
+        #a:hover{
+            background-color: rgb(127, 229, 255);
+
+        }
+        #b:hover{
+            background-color: rgb(255, 189, 127);
+            /* width: 48px;
+            height: 48px; */
+            transition-duration: 160ms;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+    <input type="text" id = "result" placeholder="                                           Result">
+    <br>
+    <input type="button" id = "b" value="6" onclick="appendnumber(6)">
+  
+    <input type="button" id = "b" value="7" onclick="appendnumber(7)">
+    <input type="button" id = "b" value="8" onclick="appendnumber(8)">
+    <input type="button" id = "a" value="+" onclick="appendoperator('+')">
+    <input type="button" id = "a" value="/" onclick="appendoperator('/')">
+  
+    
+    <br>
+    <input type="button" id = "b" value="3" onclick="appendnumber(3)">
+    <input type="button" id = "b" value="4" onclick="appendnumber(4)">
+    <input type="button" id = "b" value="5" onclick="appendnumber(5)">
+    <input type="button" id = "a" value="-" onclick="appendoperator('-')">
+    <input type="button" id = "a" value="*" onclick="appendoperator('*')">
+  
+    
+    
+    <br>
+    <input type="button" id = "b" value="0" onclick="appendnumber(0)">
+
+    <input type="button" id = "b" value="1" onclick="appendnumber(1)">
+    <input type="button" id = "b" value="2" onclick="appendnumber(2)">
+    <input type="button" id = "a" value="clear" onclick="clearall()">
+  
+    <input type="button" id = "a" value="=" onclick="calculate()">
+</div>
+<script>
+    function appendnumber(num)
+    {
+        document.getElementById("result").value +=  num;
+
+    }
+    function appendoperator(operator)
+    {
+        document.getElementById("result").value += operator ;
+        
+    }
+    function clearall(){
+        document.getElementById("result").value = "";
+
+    }
+    function calculate()
+    {
+        let expression = document.getElementById("result").value;
+        try{
+            
+            let result = eval(expression);
+            document.getElementById("result").value = result;
+
+        }
+        catch(error)
+        {
+            document.getElementById("result").value = "error";
+        }
+    }
+</script>
+    
+</body>
+</html>
